@@ -1,0 +1,71 @@
+/* src/sections/HeroSection.css */
+
+.hero-section {
+  position: relative;
+  min-height: 80vh; /* Para que ocupe gran parte de la pantalla */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 6rem 2rem; /* Padding generoso */
+  background: linear-gradient(135deg, var(--primary-light-blue), var(--bg-gradient-end)); /* Fondo con degradado suave */
+  color: var(--text-dark);
+  padding-top: 100px; /* Para compensar el header fijo */
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+  animation: fadeIn 1s ease-out forwards; /* Animación de entrada */
+}
+
+.hero-section h1 {
+  font-size: clamp(3rem, 6vw, 5rem); /* Título grande y responsivo */
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+  color: var(--primary-dark-blue); /* Color principal del título */
+  text-shadow: var(--shadow-sm); /* Sombra sutil para el texto */
+}
+
+.hero-section p {
+  font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+  color: var(--text-medium);
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Animación para la sección */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: 70vh;
+    padding: 8rem 1rem;
+  }
+  .hero-section h1 {
+    font-size: clamp(2.5rem, 8vw, 4rem);
+  }
+  .hero-section p {
+    font-size: clamp(1rem, 3vw, 1.2rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section {
+    min-height: 60vh;
+    padding: 6rem 1rem;
+  }
+}
