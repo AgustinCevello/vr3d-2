@@ -12,8 +12,8 @@ const HeroSection = ({ id }) => {
   return (
     <section id={id} className="hero-section">
       <div className="hero-content">
-        <h1>Soluciones de Energía Renovables para un Futuro Sostenible</h1>
-        <p>Diseñamos e implementamos sistemas innovadores para el hogar y la industria</p>
+        <h1>VR3D</h1>
+        <h1>Ingeniería</h1>
       </div>
     </section>
   );

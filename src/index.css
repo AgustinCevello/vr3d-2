@@ -799,7 +799,7 @@ textarea.form-input:required:not(:placeholder-shown):valid {
 }
 
 .footer-icon-image {
-  width: 100px;
+  width: 170px;
   height: auto;
   flex-shrink: 0;
 }
@@ -920,8 +920,8 @@ textarea.form-input:required:not(:placeholder-shown):valid {
 
   .footer-contact svg,
   .footer-icon-image {
-    width: 20px;
-    height: 20px;
+    width: 80px;
+    height: 100px;
   }
 }
 

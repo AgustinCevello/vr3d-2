@@ -9,7 +9,7 @@ const ServicesSection = ({ id }) => {
     "Cálculos estructurales",
     "Dirección de obras",
     "Elaboración de ingeniería básica e ingeniería de detalle",
-    "Proyecto, diseño y dimencionamiento de instalaciones solares fotovoltáicas"
+    "Proyecto y ejecución de instalaciones solares fotovoltaicas industriales"
   ];
 
   return (

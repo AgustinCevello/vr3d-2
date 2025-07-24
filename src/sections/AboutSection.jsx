@@ -8,10 +8,8 @@ const AboutSection = ({ id }) => {
       <div className="section-content">
         <h2>Quiénes Somos</h2>
         <p className="about-text">
-          VR3D es un estudio de ingeniería de Argentina, abocado a la elaboración de proyectos edilicios de arquitectura y obras civiles en general.
-        </p>
-        <p className="about-text">
-          Nuestro objetivo es contribuir a las mejoras individuales y colectivas en el uso racional y eficiente de la energía, ya sea a través de la construcción sustentable, de la generación distribuida de energía eléctrica o del aprovechamiento de la energía solar para calefacción y/o producción de agua caliente sanitaria.
+          VR3D es un estudio de ingeniería de Argentina, abocado a la elaboración de proyectos edilicios de arquitectura y obras civiles en general. 
+Nuestro objetivo es contribuir a la construcción de un futuro sostenible, mediante el uso racional y eficiente de la energía, a través de la construcción sustentable y ejecutando proyectos de generación distribuida de energía eléctrica.
         </p>
       </div>
     </section>
