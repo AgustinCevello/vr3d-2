@@ -191,7 +191,7 @@ const ContactSection = ({ id }) => {
               name="name"
               className={`form-input ${errors.name ? 'input-error' : ''}`}
               required
-              placeholder="Tu nombre completo"
+              placeholder="Tu nombre"
               maxLength="50"
               value={formData.name}
               onChange={handleChange}

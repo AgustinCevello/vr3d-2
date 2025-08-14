@@ -918,10 +918,15 @@ textarea.form-input:required:not(:placeholder-shown):valid {
     font-size: var(--font-size-sm);
   }
 
-  .footer-contact svg,
+  /* Separamos los estilos para SVG e imagen */
+  .footer-contact svg {
+    width: 20px;
+    height: 20px;
+  }
+
   .footer-icon-image {
-    width: 80px;
-    height: 100px;
+    width: 120px;
+    height: auto; /* Mantiene la proporción */
   }
 }
 
@@ -941,6 +946,17 @@ textarea.form-input:required:not(:placeholder-shown):valid {
 
   .contact-form {
     padding: var(--space-lg);
+  }
+
+  /* Ajustes adicionales para pantallas muy pequeñas */
+  .footer-icon-image {
+    width: 100px;
+    height: auto;
+  }
+
+  .footer-contact svg {
+    width: 18px;
+    height: 18px;
   }
 }
 
