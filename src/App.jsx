@@ -40,6 +40,12 @@ const AppHeader = () => {
     setMenuOpen(!menuOpen);
   };
 
+  // Función para ir al inicio de la página
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setMenuOpen(false);
+  };
+
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth > 992 && menuOpen) {
@@ -87,7 +93,7 @@ const AppHeader = () => {
         <nav className={`main-nav ${menuOpen ? 'active' : ''}`} onClick={(e) => e.stopPropagation()}>
           <ul className="nav-menu">
             <li className="nav-item">
-              <a href="#hero" onClick={() => { scrollToSection('hero'); setMenuOpen(false); }}>Inicio</a>
+              <a href="#" onClick={(e) => { e.preventDefault(); scrollToTop(); }}>Inicio</a>
             </li>
             <li className="nav-item">
               <a href="#about" onClick={() => { scrollToSection('about'); setMenuOpen(false); }}>Quienes Somos</a>

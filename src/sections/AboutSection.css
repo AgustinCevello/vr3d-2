@@ -4,7 +4,10 @@
 .about-section {
   background-color: var(--color-surface);
   border-bottom: 1px solid var(--color-neutral-300);
-  padding: 0; /* Sin padding para el hero */
+  padding: 0;
+  position: relative; /* Asegura contexto de apilamiento */
+  z-index: 10; /* Valor alto para que esté encima */
+  margin-top: 80px; /* Ajusta según la altura de tu header/navbar */
 }
 
 /* Hero Section Styles */
@@ -16,7 +19,7 @@
   overflow: hidden;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .hero-background {
@@ -53,7 +56,7 @@
 .hero-content {
   position: relative;
   z-index: 3;
-  text-align: center;
+  text-align: left;
   color: var(--color-text-inverse);
   padding: var(--space-xl);
 }
@@ -85,6 +88,8 @@
   background-color: var(--color-surface);
   padding: var(--space-4xl) var(--space-xl);
   text-align: center;
+  position: relative; /* Añadido */
+  z-index: 15; /* Añadido - mayor que hero */
 }
 
 .about-info h2 {
@@ -136,6 +141,10 @@
 
 /* Responsividad */
 @media (max-width: 992px) {
+  .about-section {
+    margin-top: 70px; /* Ajustado para tablets */
+  }
+  
   .hero-section {
     height: 50vh;
     min-height: 350px;
@@ -151,6 +160,10 @@
 }
 
 @media (max-width: 768px) {
+  .about-section {
+    margin-top: 60px; /* Ajustado para móviles */
+  }
+  
   .hero-section {
     height: 45vh;
     min-height: 300px;
@@ -183,6 +196,10 @@
 }
 
 @media (max-width: 480px) {
+  .about-section {
+    margin-top: 50px; /* Ajustado para pantallas pequeñas */
+  }
+  
   .hero-section {
     height: 40vh;
     min-height: 280px;

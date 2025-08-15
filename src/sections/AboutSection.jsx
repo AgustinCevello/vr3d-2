@@ -5,18 +5,20 @@ import heroImage from '../assets/images/imginicio.png';
 
 const AboutSection = ({ id }) => {
   return (
-    <section id={id} className="about-section hero-section">
-      <div className="hero-background">
-        <img src={heroImage} alt="VR3D Ingeniería - Energía Solar" className="hero-image" />
-        <div className="hero-overlay"></div>
-      </div>
-      
-      <div className="hero-content">
-        <div className="hero-text">
-          <h1 className="hero-title">
-            VR3D<br />
-            <span className="hero-subtitle">INGENIERÍA</span>
-          </h1>
+    <section id={id} className="about-section">
+      <div className="hero-section">
+        <div className="hero-background">
+          <img src={heroImage} alt="VR3D Ingeniería - Energía Solar" className="hero-image" />
+          <div className="hero-overlay"></div>
+        </div>
+        
+        <div className="hero-content">
+          <div className="hero-text">
+            <h1 className="hero-title">
+              VR3D<br />
+              <span className="hero-subtitle">INGENIERÍA</span>
+            </h1>
+          </div>
         </div>
       </div>
       
