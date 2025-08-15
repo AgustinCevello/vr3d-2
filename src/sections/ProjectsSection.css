@@ -1,0 +1,146 @@
+/* src/sections/ProjectsSection.css */
+
+.projects-section {
+  padding: 80px 0;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.projects-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 50px;
+  color: #333;
+}
+
+/* Contenedor principal del carrusel para centrarlo y darle un ancho máximo */
+.carousel-container {
+  max-width: 800px; /* Ancho máximo del carrusel */
+  margin: 0 auto;
+  padding: 0 40px; /* Espacio para que las flechas no se peguen a los bordes */
+}
+
+/* Estilos para cada slide individual */
+.project-slide {
+  padding: 0 10px; /* Espacio entre slides si se mostrara más de uno */
+}
+
+.project-card-carousel {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden; /* Para que la imagen respete el borde redondeado */
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Asegura que todas las tarjetas tengan la misma altura */
+}
+
+.project-image {
+  width: 100%;
+  max-height: 400px; /* Altura máxima para la imagen */
+  object-fit: cover; /* Asegura que la imagen cubra el espacio sin deformarse */
+}
+
+.project-info {
+  padding: 25px;
+  text-align: left; /* Alineamos el texto a la izquierda para mejor lectura */
+  flex-grow: 1; /* Permite que este contenedor crezca y empuje el pie de página hacia abajo */
+}
+
+.project-info h3 {
+  color: #333;
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 1.8rem;
+}
+
+.project-info p {
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.project-location strong {
+  color: #444; /* Un poco más de énfasis para la ubicación */
+}
+
+/* --- ESTILOS PARA PERSONALIZAR EL CARRUSEL (react-slick) --- */
+
+/* Estilo para las flechas (prev/next) */
+.slick-prev,
+.slick-next {
+  font-size: 0; /* Oculta el texto por defecto */
+  line-height: 0;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  cursor: pointer;
+  color: transparent;
+  border: none;
+  outline: none;
+  background: transparent;
+  z-index: 10;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  font-family: 'slick';
+  font-size: 30px; /* Tamaño del ícono de la flecha */
+  line-height: 1;
+  opacity: 0.75;
+  color: #333; /* Color de las flechas */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.slick-prev {
+  left: -35px; /* Posición de la flecha izquierda */
+}
+
+.slick-next {
+  right: -35px; /* Posición de la flecha derecha */
+}
+
+/* Estilo para los puntos de navegación (dots) */
+.slick-dots {
+  bottom: -40px; /* Separación de los puntos del carrusel */
+}
+
+.slick-dots li button:before {
+  font-size: 12px; /* Tamaño de los puntos */
+  color: #333; /* Color de los puntos */
+  opacity: 0.5;
+}
+
+.slick-dots li.slick-active button:before {
+  color: #333; /* Color del punto activo */
+  opacity: 1;
+}
+
+
+/* --- RESPONSIVIDAD --- */
+
+@media (max-width: 768px) {
+  .projects-section {
+    padding: 60px 15px;
+  }
+
+  .projects-section h2 {
+    font-size: 2rem;
+    margin-bottom: 40px;
+  }
+
+  .carousel-container {
+    padding: 0; /* Quitamos el padding en móvil, las flechas se pegarán más */
+  }
+
+  .slick-prev, .slick-next {
+      display: none !important; /* Ocultamos las flechas en móvil para una experiencia más limpia */
+  }
+
+  .project-info h3 {
+    font-size: 1.5rem;
+  }
+}

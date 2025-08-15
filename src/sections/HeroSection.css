@@ -1,9 +1,9 @@
 /* src/sections/HeroSection.css */
 
 .hero-section {
+  display: none; /* Hace la sección completamente inexistente visualmente */
   position: relative;
   min-height: 80vh; /* Para que ocupe gran parte de la pantalla */
-  display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
