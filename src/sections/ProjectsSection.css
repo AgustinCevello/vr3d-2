@@ -4,6 +4,7 @@
   padding: 80px 0;
   background-color: #f9f9f9;
   text-align: center;
+  overflow: hidden;
 }
 
 .projects-section h2 {
@@ -12,38 +13,92 @@
   color: #333;
 }
 
-/* Contenedor principal del carrusel para centrarlo y darle un ancho máximo */
+/* Contenedor principal del carrusel */
 .carousel-container {
-  max-width: 800px; /* Ancho máximo del carrusel */
+  max-width: 100%; 
+  width: 100%;
   margin: 0 auto;
-  padding: 0 40px; /* Espacio para que las flechas no se peguen a los bordes */
+  padding: 0 40px;
+  box-sizing: border-box; 
 }
 
 /* Estilos para cada slide individual */
 .project-slide {
-  padding: 0 10px; /* Espacio entre slides si se mostrara más de uno */
+  padding: 0 10px;
+  box-sizing: border-box;
 }
 
 .project-card-carousel {
   background-color: #ffffff;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  overflow: hidden; /* Para que la imagen respete el borde redondeado */
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  height: 100%; /* Asegura que todas las tarjetas tengan la misma altura */
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+/* Wrapper para la imagen con efecto hover */
+.project-image-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  cursor: pointer;
+  background-color: #f0f0f0;
 }
 
 .project-image {
   width: 100%;
-  max-height: 400px; /* Altura máxima para la imagen */
-  object-fit: cover; /* Asegura que la imagen cubra el espacio sin deformarse */
+  height: auto; 
+  max-height: 500px; 
+  object-fit: contain; 
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.project-image-wrapper:hover .project-image {
+  transform: scale(1.05);
+}
+
+/* Overlay que aparece al hacer hover */
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  gap: 10px;
+}
+
+.project-image-wrapper:hover .image-overlay,
+.project-image-wrapper:focus .image-overlay {
+  opacity: 1;
+}
+
+.zoom-icon {
+  font-size: 3rem;
+  color: white;
+}
+
+.zoom-text {
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .project-info {
   padding: 25px;
-  text-align: left; /* Alineamos el texto a la izquierda para mejor lectura */
-  flex-grow: 1; /* Permite que este contenedor crezca y empuje el pie de página hacia abajo */
+  text-align: left;
+  flex-grow: 1;
 }
 
 .project-info h3 {
@@ -60,15 +115,117 @@
 }
 
 .project-location strong {
-  color: #444; /* Un poco más de énfasis para la ubicación */
+  color: #444;
+}
+
+/* --- MODAL PARA IMAGEN AMPLIADA --- */
+.image-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999; 
+  padding: 20px;
+  cursor: default;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modal-content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  animation: zoomIn 0.3s ease;
+  user-select: none;
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.modal-content img {
+  max-width: 100%;
+  max-height: 90vh;
+  width: auto;
+  height: auto;
+  display: block;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  border-radius: 4px;
+  user-select: none;
+}
+
+/* Texto de ayuda en el modal */
+.modal-hint {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 10px 20px;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  animation: fadeIn 0.5s ease;
+  pointer-events: none;
+  z-index: 100000;
+}
+
+.modal-close {
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  font-size: 2rem;
+  color: #333;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100002;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.modal-close:hover {
+  background-color: #fff;
+  transform: rotate(90deg) scale(1.1);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+.modal-close:focus {
+  outline: 3px solid #4299e1;
+  outline-offset: 2px;
 }
 
 /* --- ESTILOS PARA PERSONALIZAR EL CARRUSEL (react-slick) --- */
-
-/* Estilo para las flechas (prev/next) */
 .slick-prev,
 .slick-next {
-  font-size: 0; /* Oculta el texto por defecto */
+  font-size: 0;
   line-height: 0;
   position: absolute;
   top: 50%;
@@ -87,41 +244,38 @@
 .slick-prev:before,
 .slick-next:before {
   font-family: 'slick';
-  font-size: 30px; /* Tamaño del ícono de la flecha */
+  font-size: 30px;
   line-height: 1;
   opacity: 0.75;
-  color: #333; /* Color de las flechas */
+  color: #333;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 .slick-prev {
-  left: -35px; /* Posición de la flecha izquierda */
+  left: -35px;
 }
 
 .slick-next {
-  right: -35px; /* Posición de la flecha derecha */
+  right: -35px;
 }
 
-/* Estilo para los puntos de navegación (dots) */
 .slick-dots {
-  bottom: -40px; /* Separación de los puntos del carrusel */
+  bottom: -40px;
 }
 
 .slick-dots li button:before {
-  font-size: 12px; /* Tamaño de los puntos */
-  color: #333; /* Color de los puntos */
+  font-size: 12px;
+  color: #333;
   opacity: 0.5;
 }
 
 .slick-dots li.slick-active button:before {
-  color: #333; /* Color del punto activo */
+  color: #333;
   opacity: 1;
 }
 
-
 /* --- RESPONSIVIDAD --- */
-
 @media (max-width: 768px) {
   .projects-section {
     padding: 60px 15px;
@@ -133,14 +287,84 @@
   }
 
   .carousel-container {
-    padding: 0; /* Quitamos el padding en móvil, las flechas se pegarán más */
+    padding: 0 15px; 
+    max-width: 100%;
   }
 
-  .slick-prev, .slick-next {
-      display: none !important; /* Ocultamos las flechas en móvil para una experiencia más limpia */
+  .project-slide {
+    padding: 0;
+  }
+
+  .project-card-carousel {
+    max-width: 100%;
+  }
+
+  .project-image {
+    max-height: 350px; 
+  }
+
+  .slick-prev, 
+  .slick-next {
+    display: none !important;
+  }
+
+  .project-info {
+    padding: 20px 15px;
   }
 
   .project-info h3 {
     font-size: 1.5rem;
+  }
+
+  .zoom-icon {
+    font-size: 2rem;
+  }
+
+  .zoom-text {
+    font-size: 0.9rem;
+  }
+
+  /* Modal en móvil */
+  .modal-close {
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+    top: 70px;
+    right: 10px;
+  }
+
+  .modal-content {
+    max-width: 90vw;
+    max-height: 90vh;
+  }
+
+  .modal-hint {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .projects-section {
+    padding: 40px 10px;
+  }
+
+  .carousel-container {
+    padding: 0 10px;
+  }
+
+  .project-image {
+    max-height: 250px;
+  }
+
+  .project-info {
+    padding: 15px 10px;
+  }
+
+  .project-info h3 {
+    font-size: 1.3rem;
+  }
+
+  .project-info p {
+    font-size: 0.9rem;
   }
 }

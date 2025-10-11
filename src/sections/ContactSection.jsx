@@ -7,7 +7,9 @@ import './ContactSection.css';
 import logoAyr from '../assets/images/logoayr.jpg';
 import logoLeses from '../assets/images/logoleses.png';
 import logoUtn from '../assets/images/logoutn.jpg';
+import logoAutomacer from '../assets/images/LogoAutomacer.png';
 import mailIcon from '../assets/images/mailvr3d.png';
+
 const ContactSection = ({ id }) => {
   const MAX_CHAR_REASON = 500; // Límite de caracteres para el motivo
 
@@ -211,6 +213,9 @@ const ContactSection = ({ id }) => {
             </div>
             <div className="logo-item">
               <img src={logoUtn} alt="Logo UTN" className="trust-logo" />
+            </div>
+            <div className="logo-item">
+              <img src={logoAutomacer} alt="Logo AUTOMACER" className="trust-logo" />
             </div>
           </div>
         </div>

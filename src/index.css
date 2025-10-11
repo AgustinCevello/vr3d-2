@@ -276,6 +276,7 @@ p {
   top: 0;
   left: 0;
   right: 0;
+  width: 100%;
   background-color: var(--color-neutral-900);
   backdrop-filter: blur(8px);
   box-shadow: var(--shadow-sm);
@@ -387,6 +388,7 @@ p {
   flex-shrink: 0;
   position: absolute;
   right: var(--space-lg);
+  z-index: 1052; /* Mayor que el menú móvil */
 }
 
 .hamburger-menu-toggle {
@@ -401,6 +403,8 @@ p {
   cursor: pointer;
   border-radius: var(--radius-sm);
   transition: all var(--transition-fast);
+  position: relative;
+  z-index: 1052; /* Mayor que el menú móvil */
 }
 
 .hamburger-menu-toggle:hover {
@@ -829,21 +833,36 @@ textarea.form-input:required:not(:placeholder-shown):valid {
 }
 
 @media (max-width: 992px) {
+  /* FIX CRÍTICO: Asegurar que el header esté bien posicionado */
+  .header {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    right: 0;
+  }
+
   .header-content {
     padding: var(--space-xl) var(--space-xl);
+    width: 100%;
   }
 
   .logo {
     height: 50px;
   }
 
+  .logo-container {
+    left: var(--space-md);
+  }
+
+  /* FIX: Menú móvil con ancho fijo para evitar overflow */
   .main-nav {
     display: none;
     flex-direction: column;
     position: fixed;
     top: 0;
     right: 0;
-    width: 320px;
+    width: 280px; /* Ancho fijo reducido */
+    max-width: 85vw; /* Máximo 85% del viewport */
     height: 100vh;
     background-color: var(--color-primary-900);
     box-shadow: var(--shadow-xl);
@@ -854,6 +873,7 @@ textarea.form-input:required:not(:placeholder-shown):valid {
     z-index: var(--z-modal);
     align-items: stretch;
     justify-content: flex-start;
+    overflow-y: auto; /* Permite scroll si el contenido es muy alto */
   }
 
   .main-nav.active {
@@ -896,8 +916,16 @@ textarea.form-input:required:not(:placeholder-shown):valid {
   .nav-item a:focus-visible::after {
     width: 60%;
   }
+
+  /* FIX: Mostrar icono hamburguesa y asegurar z-index correcto */
   .hamburger-menu-toggle {
-    display: flex; /* Muestra el icono de hamburguesa */
+    display: flex;
+    position: relative;
+    z-index: 1052;
+  }
+
+  .header-right-controls {
+    right: var(--space-md);
   }
 }
 
@@ -928,6 +956,13 @@ textarea.form-input:required:not(:placeholder-shown):valid {
     width: 120px;
     height: auto; /* Mantiene la proporción */
   }
+
+  /* FIX: Ajustes adicionales para el menú en tablets */
+  .main-nav {
+    width: 260px;
+    padding: var(--space-2xl) var(--space-lg);
+    padding-top: 90px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -935,9 +970,16 @@ textarea.form-input:required:not(:placeholder-shown):valid {
     height: 40px;
   }
 
+  .logo-container {
+    left: var(--space-sm);
+  }
+
+  /* FIX: Menú más estrecho en móviles pequeños */
   .main-nav {
-    width: 75vw; /* 75% del ancho de pantalla en móviles muy pequeños */
+    width: 240px;
+    max-width: 80vw;
     padding: var(--space-xl) var(--space-md);
+    padding-top: 80px;
   }
 
   .section {
@@ -956,6 +998,15 @@ textarea.form-input:required:not(:placeholder-shown):valid {
 
   .footer-contact svg {
     width: 18px;
+    height: 18px;
+  }
+
+  .header-right-controls {
+    right: var(--space-sm);
+  }
+
+  .hamburger-menu-toggle {
+    width: 24px;
     height: 18px;
   }
 }
@@ -1009,4 +1060,3 @@ textarea.form-input:required:not(:placeholder-shown):valid {
     color: black !important;
   }
 }
-
