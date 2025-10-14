@@ -83,9 +83,17 @@
   opacity: 1;
 }
 
+/* Icono de lupa (imagen) */
 .zoom-icon {
-  font-size: 3rem;
-  color: white;
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  filter: brightness(0) invert(1); /* Hace la imagen blanca */
+  transition: transform 0.3s ease;
+}
+
+.project-image-wrapper:hover .zoom-icon {
+  transform: scale(1.1);
 }
 
 .zoom-text {
@@ -150,6 +158,15 @@
   max-height: 90vh;
   animation: zoomIn 0.3s ease;
   user-select: none;
+  overflow: hidden;
+}
+
+.modal-content.zooming {
+  cursor: zoom-in;
+}
+
+.modal-content.zooming .modal-image {
+  cursor: zoom-in;
 }
 
 @keyframes zoomIn {
@@ -316,8 +333,10 @@
     font-size: 1.5rem;
   }
 
+  /* Lupa más pequeña en móvil */
   .zoom-icon {
-    font-size: 2rem;
+    width: 30px;
+    height: 30px;
   }
 
   .zoom-text {
@@ -366,5 +385,11 @@
 
   .project-info p {
     font-size: 0.9rem;
+  }
+
+  /* Lupa aún más pequeña en pantallas muy pequeñas */
+  .zoom-icon {
+    width: 25px;
+    height: 25px;
   }
 }
