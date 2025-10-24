@@ -1,610 +1,646 @@
 /* src/sections/ProjectsSection.css */
 
 .projects-section {
-    padding: 80px 0;
-    background-color: #f9f9f9;
-    text-align: center;
-    overflow: hidden;
+  padding: 80px 0;
+  background-color: #f9f9f9;
+  text-align: center;
+  overflow: hidden;
 }
 
 .projects-section h2 {
-    font-size: 2.5rem;
-    margin-bottom: 50px;
-    color: #333;
+  font-size: 2.5rem;
+  margin-bottom: 50px;
+  color: #333;
 }
 
 /* Contenedor wrapper del carrusel con botones */
 .carousel-wrapper {
-    position: relative;
-    width: 100%;
-    max-width: 900px; /* Limitar el ancho máximo del carrusel */
-    margin: 0 auto;
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 /* Contenedor principal del carrusel (Contenedor de desplazamiento) */
 .carousel-container {
-    width: 100%;
-    margin: 0 auto;
-    padding: 0 40px; 
-    box-sizing: border-box;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 40px;
+  box-sizing: border-box;
 
-    /* PROPIEDADES CLAVE DE SCROLL SNAP */
-    display: flex;
-    overflow-x: scroll;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    scroll-padding: 0 40px;
-    scroll-behavior: smooth; /* Desplazamiento suave */
+  /* PROPIEDADES CLAVE DE SCROLL SNAP */
+  display: flex;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scroll-padding: 0 40px;
+  scroll-behavior: smooth;
 }
 
 /* Ocultar la barra de scroll en navegadores */
 .carousel-container::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 .carousel-container {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 /* Estilos para cada slide individual */
 .project-slide {
-    flex: 0 0 100%;
-    width: 100%;
-    scroll-snap-align: center;
-    padding: 0 10px;
-    box-sizing: border-box;
-    outline: none;
+  flex: 0 0 100%;
+  width: 100%;
+  scroll-snap-align: center;
+  padding: 0 10px;
+  box-sizing: border-box;
+  outline: none;
 }
 
 .project-card-carousel {
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    margin: 0 auto;
-    max-width: 750px; /* Reducir el ancho máximo de las tarjetas */
-    min-height: 550px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  max-width: 750px;
+  min-height: 550px;
 }
 
 /* Wrapper para la imagen con altura fija */
 .project-image-wrapper {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-    cursor: pointer;
-    background-color: #f0f0f0;
-    height: 300px; 
-    flex-shrink: 0;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  cursor: pointer;
+  background-color: #f0f0f0;
+  height: 300px;
+  flex-shrink: 0;
 }
 
 .project-image {
-    width: 100%;
-    height: 100%;
-    object-fit: contain; 
-    display: block;
-    transition: transform 0.3s ease;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.3s ease;
 }
 
 .project-image-wrapper:hover .project-image {
-    transform: scale(1.05);
+  transform: scale(1.05);
 }
 
 .image-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.6);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    gap: 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  gap: 10px;
 }
 
 .project-image-wrapper:hover .image-overlay,
 .project-image-wrapper:focus .image-overlay {
-    opacity: 1;
+  opacity: 1;
 }
 
 .zoom-icon {
-    width: 40px;
-    height: 40px;
-    object-fit: contain;
-    filter: brightness(0) invert(1);
-    transition: transform 0.3s ease;
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  transition: transform 0.3s ease;
 }
 
 .project-image-wrapper:hover .zoom-icon {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 .zoom-text {
-    color: white;
-    font-size: 1.1rem;
-    font-weight: 600;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .project-info {
-    padding: 25px;
-    text-align: left;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+  padding: 25px;
+  text-align: left;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .project-info h3 {
-    color: #333;
-    margin-top: 0;
-    margin-bottom: 15px;
-    font-size: 1.8rem;
+  color: #333;
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 1.8rem;
 }
 
 .project-info p {
-    color: #666;
-    line-height: 1.6;
-    margin-bottom: 10px;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.project-location {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
 }
 
 .project-location strong {
-    color: #444;
+  color: #444;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 /* Descripción responsive - ocultar/mostrar según pantalla */
-.project-description .description-mobile {
-    display: none;
+.project-description .description-mobile,
+.project-location .location-mobile {
+  display: none;
 }
 
-.project-description .description-full {
-    display: inline;
+.project-description .description-full,
+.project-location .location-full {
+  display: inline;
 }
 
 /* BOTONES DE NAVEGACIÓN DEL CARRUSEL */
 .carousel-nav-button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(255, 255, 255, 0.95);
-    border: none;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 10;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.95);
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .carousel-nav-button:hover {
-    background-color: #ffffff;
-    transform: translateY(-50%) scale(1.1);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+  background-color: #ffffff;
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
 }
 
 .carousel-nav-button:focus {
-    outline: 3px solid #4299e1;
-    outline-offset: 2px;
+  outline: 3px solid #4299e1;
+  outline-offset: 2px;
 }
 
 .carousel-nav-button:disabled {
-    opacity: 0.3;
-    cursor: not-allowed;
+  opacity: 0.3;
+  cursor: not-allowed;
 }
 
 .carousel-nav-button:disabled:hover {
-    transform: translateY(-50%) scale(1);
+  transform: translateY(-50%) scale(1);
 }
 
 .carousel-nav-button.prev {
-    left: 10px;
+  left: 10px;
 }
 
 .carousel-nav-button.next {
-    right: 10px;
+  right: 10px;
 }
 
 .carousel-nav-button svg {
-    width: 24px;
-    height: 24px;
-    color: #333;
+  width: 24px;
+  height: 24px;
+  color: #333;
 }
 
 /* CONTENEDOR DE DOTS */
 .slick-dots-container {
-    margin-top: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
 }
 
 .slick-dots-container ul {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0;
-    margin: 0;
-    gap: 8px;
-    list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  gap: 8px;
+  list-style: none;
 }
 
 .slick-dots-container li {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .slick-dots-container button {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    border: none;
-    background-color: #d1d5db;
-    padding: 0;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  background-color: #d1d5db;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: block;
 }
 
 .slick-dots-container li.slick-active button {
-    background-color: #333;
-    width: 28px;
-    border-radius: 5px;
+  background-color: #333;
+  width: 28px;
+  border-radius: 5px;
 }
 
 .slick-dots-container button:hover {
-    background-color: #9ca3af;
+  background-color: #9ca3af;
 }
 
 .sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border-width: 0;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }
 
 /* MODAL PARA IMAGEN AMPLIADA */
 .image-modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.9);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 99999; 
-    padding: 20px;
-    cursor: default;
-    animation: fadeIn 0.3s ease;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+  padding: 20px;
+  cursor: default;
+  animation: fadeIn 0.3s ease;
 }
 
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .modal-content {
-    position: relative;
-    max-width: 90vw;
-    max-height: 90vh;
-    animation: zoomIn 0.3s ease;
-    user-select: none;
-    overflow: hidden;
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  animation: zoomIn 0.3s ease;
+  user-select: none;
+  overflow: hidden;
 }
 
 .modal-content.zooming {
-    cursor: zoom-in;
+  cursor: zoom-in;
 }
 
 .modal-content.zooming .modal-image {
-    cursor: zoom-in;
+  cursor: zoom-in;
 }
 
 @keyframes zoomIn {
-    from {
-        transform: scale(0.8);
-        opacity: 0;
-    }
-    to {
-        transform: scale(1);
-        opacity: 1;
-    }
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 .modal-content img {
-    max-width: 100%;
-    max-height: 90vh;
-    width: auto;
-    height: auto;
-    display: block;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-    border-radius: 4px;
-    user-select: none;
+  max-width: 100%;
+  max-height: 90vh;
+  width: auto;
+  height: auto;
+  display: block;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  border-radius: 4px;
+  user-select: none;
 }
 
 .modal-hint {
-    position: fixed;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    color: rgba(255, 255, 255, 0.8);
-    font-size: 0.9rem;
-    background-color: rgba(0, 0, 0, 0.6);
-    padding: 10px 20px;
-    border-radius: 20px;
-    backdrop-filter: blur(10px);
-    animation: fadeIn 0.5s ease;
-    pointer-events: none;
-    z-index: 100000;
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 10px 20px;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  animation: fadeIn 0.5s ease;
+  pointer-events: none;
+  z-index: 100000;
 }
 
 .modal-close {
-    position: fixed;
-    top: 80px;
-    right: 20px;
-    width: 50px;
-    height: 50px;
-    background-color: rgba(255, 255, 255, 0.9);
-    border: none;
-    border-radius: 50%;
-    font-size: 2rem;
-    color: #333;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 100002;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  font-size: 2rem;
+  color: #333;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100002;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .modal-close:hover {
-    background-color: #fff;
-    transform: rotate(90deg) scale(1.1);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+  background-color: #fff;
+  transform: rotate(90deg) scale(1.1);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
 }
 
 .modal-close:focus {
-    outline: 3px solid #4299e1;
-    outline-offset: 2px;
+  outline: 3px solid #4299e1;
+  outline-offset: 2px;
 }
 
 /* RESPONSIVIDAD */
 @media (max-width: 768px) {
-    .projects-section {
-        padding: 60px 0;
-    }
+  .projects-section {
+    padding: 60px 0;
+  }
 
-    .projects-section h2 {
-        font-size: 2rem;
-        margin-bottom: 30px;
-        padding: 0 20px;
-    }
+  .projects-section h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    padding: 0 20px;
+  }
 
-    .carousel-container {
-        padding: 0 25px;
-        scroll-padding: 0 25px;
-    }
+  .carousel-container {
+    padding: 0 25px;
+    scroll-padding: 0 25px;
+  }
 
-    .project-slide {
-        padding: 0 8px;
-    }
+  .project-slide {
+    padding: 0 8px;
+  }
 
-    .project-card-carousel {
-        max-width: 100%;
-        margin: 0;
-        min-height: 500px;
-    }
+  .project-card-carousel {
+    max-width: 100%;
+    margin: 0;
+    min-height: 500px;
+  }
 
-    .project-image-wrapper {
-        height: 220px;
-    }
+  .project-image-wrapper {
+    height: 220px;
+  }
 
-    .project-info {
-        padding: 20px;
-    }
+  .project-info {
+    padding: 20px;
+  }
 
-    .project-info h3 {
-        font-size: 1.5rem;
-        margin-bottom: 12px;
-    }
+  .project-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+  }
 
-    .project-info p {
-        font-size: 0.95rem;
-        margin-bottom: 8px;
-    }
+  .project-info p {
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+  }
 
-    .zoom-icon {
-        width: 35px;
-        height: 35px;
-    }
+  .zoom-icon {
+    width: 35px;
+    height: 35px;
+  }
 
-    .zoom-text {
-        font-size: 1rem;
-    }
+  .zoom-text {
+    font-size: 1rem;
+  }
 
-    .carousel-nav-button {
-        width: 40px;
-        height: 40px;
-    }
+  .carousel-nav-button {
+    width: 40px;
+    height: 40px;
+  }
 
-    .carousel-nav-button.prev {
-        left: 5px;
-    }
+  .carousel-nav-button.prev {
+    left: 5px;
+  }
 
-    .carousel-nav-button.next {
-        right: 5px;
-    }
+  .carousel-nav-button.next {
+    right: 5px;
+  }
 
-    .carousel-nav-button svg {
-        width: 20px;
-        height: 20px;
-    }
+  .carousel-nav-button svg {
+    width: 20px;
+    height: 20px;
+  }
 
-    .slick-dots-container {
-        margin-top: 20px;
-    }
+  .slick-dots-container {
+    margin-top: 20px;
+  }
 
-    .modal-close {
-        width: 40px;
-        height: 40px;
-        font-size: 1.5rem;
-        top: 70px;
-        right: 10px;
-    }
+  .modal-close {
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+    top: 70px;
+    right: 10px;
+  }
 
-    .modal-content {
-        max-width: 95vw;
-        max-height: 85vh;
-    }
+  .modal-content {
+    max-width: 95vw;
+    max-height: 85vh;
+  }
 
-    .modal-content img {
-        max-height: 85vh;
-    }
+  .modal-content img {
+    max-height: 85vh;
+  }
 }
 
 @media (max-width: 480px) {
-    .projects-section {
-        padding: 50px 0;
-    }
+  .projects-section {
+    padding: 50px 0;
+  }
 
-    .projects-section h2 {
-        font-size: 1.75rem;
-        margin-bottom: 25px;
-        padding: 0 20px;
-    }
+  .projects-section h2 {
+    font-size: 1.75rem;
+    margin-bottom: 25px;
+    padding: 0 20px;
+  }
 
-    .carousel-container {
-        padding: 0 15px;
-        scroll-padding: 0 15px;
-    }
+  .carousel-container {
+    padding: 0 15px;
+    scroll-padding: 0 15px;
+  }
 
-    .project-slide {
-        padding: 0;
-    }
+  .project-slide {
+    padding: 0;
+  }
 
-    .project-card-carousel {
-        min-height: 480px;
-        margin: 0 5px;
-    }
+  .project-card-carousel {
+    min-height: 520px;
+    margin: 0 5px;
+  }
 
-    .project-image-wrapper {
-        height: 200px;
-    }
+  .project-image-wrapper {
+    height: 200px;
+  }
 
-    .project-info {
-        padding: 18px;
-    }
+  .project-info {
+    padding: 18px;
+  }
 
-    .project-info h3 {
-        font-size: 1.4rem;
-        margin-bottom: 10px;
-        text-align: center;
-    }
+  .project-info h3 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    text-align: center;
+  }
 
-    .project-info p {
-        font-size: 0.9rem;
-        line-height: 1.5;
-        text-align: center;
-    }
+  .project-info p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    text-align: center;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
 
-    /* Mostrar descripción en dos líneas en mobile */
-    .project-description .description-full {
-        display: none;
-    }
+  .project-description {
+    line-height: 1.6;
+  }
 
-    .project-description .description-mobile {
-        display: inline;
-    }
+  .project-description .description-full {
+    display: none;
+  }
 
-    .project-location strong {
-        display: block;
-    }
+  .project-description .description-mobile {
+    display: inline;
+  }
 
-    .zoom-icon {
-        width: 30px;
-        height: 30px;
-    }
+  .project-location .location-full {
+    display: none;
+  }
 
-    .zoom-text {
-        font-size: 0.9rem;
-    }
+  .project-location .location-mobile {
+    display: inline;
+  }
 
-    .carousel-nav-button {
-        width: 36px;
-        height: 36px;
-    }
+  .project-location strong {
+    display: block;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
 
-    .carousel-nav-button svg {
-        width: 18px;
-        height: 18px;
-    }
+  .zoom-icon {
+    width: 30px;
+    height: 30px;
+  }
 
-    .slick-dots-container button {
-        width: 8px;
-        height: 8px;
-    }
+  .zoom-text {
+    font-size: 0.9rem;
+  }
 
-    .slick-dots-container li.slick-active button {
-        width: 24px;
-    }
+  .carousel-nav-button {
+    width: 36px;
+    height: 36px;
+  }
 
-    .modal-close {
-        width: 36px;
-        height: 36px;
-        font-size: 1.3rem;
-        top: 60px;
-        right: 8px;
-    }
+  .carousel-nav-button svg {
+    width: 18px;
+    height: 18px;
+  }
 
-    .modal-hint {
-        font-size: 0.8rem;
-        padding: 8px 16px;
-        bottom: 20px;
-    }
+  .slick-dots-container button {
+    width: 8px;
+    height: 8px;
+  }
+
+  .slick-dots-container li.slick-active button {
+    width: 24px;
+  }
+
+  .modal-close {
+    width: 36px;
+    height: 36px;
+    font-size: 1.3rem;
+    top: 60px;
+    right: 8px;
+  }
+
+  .modal-hint {
+    font-size: 0.8rem;
+    padding: 8px 16px;
+    bottom: 20px;
+  }
 }
 
 /* Ajustes específicos para pantallas muy pequeñas como iPhone SE */
 @media (max-width: 375px) {
-    .carousel-container {
-        padding: 0 15px;
-        scroll-padding: 0 15px;
-    }
+  .carousel-container {
+    padding: 0 15px;
+    scroll-padding: 0 15px;
+  }
 
-    .project-card-carousel {
-        margin: 0;
-        min-height: 460px;
-    }
+  .project-card-carousel {
+    margin: 0;
+    min-height: 540px;
+  }
 
-    .project-info {
-        padding: 18px;
-    }
+  .project-info {
+    padding: 16px;
+  }
 
-    .project-info h3 {
-        font-size: 1.3rem;
-    }
+  .project-info h3 {
+    font-size: 1.3rem;
+  }
 
-    .project-info p {
-        font-size: 0.85rem;
-    }
+  .project-info p {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .project-description {
+    line-height: 1.65;
+  }
+
+  .project-location {
+    line-height: 1.65;
+  }
 }
