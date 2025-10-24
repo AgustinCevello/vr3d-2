@@ -157,6 +157,15 @@
     color: #444;
 }
 
+/* Descripción responsive - ocultar/mostrar según pantalla */
+.project-description .description-mobile {
+    display: none;
+}
+
+.project-description .description-full {
+    display: inline;
+}
+
 /* BOTONES DE NAVEGACIÓN DEL CARRUSEL */
 .carousel-nav-button {
     position: absolute;
@@ -517,6 +526,15 @@
         font-size: 0.9rem;
         line-height: 1.5;
         text-align: center;
+    }
+
+    /* Mostrar descripción en dos líneas en mobile */
+    .project-description .description-full {
+        display: none;
+    }
+
+    .project-description .description-mobile {
+        display: inline;
     }
 
     .project-location strong {

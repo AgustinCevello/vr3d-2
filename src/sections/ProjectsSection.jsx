@@ -138,6 +138,17 @@ const ProjectsSection = ({ id }) => {
         setIsZooming(false);
     };
 
+    // Función para dividir la descripción en dos líneas en mobile
+    const formatDescription = (description) => {
+        // Buscar la palabra "y" o comas para dividir naturalmente
+        const words = description.split(' ');
+        const midPoint = Math.ceil(words.length / 2);
+        const firstLine = words.slice(0, midPoint).join(' ');
+        const secondLine = words.slice(midPoint).join(' ');
+        
+        return { firstLine, secondLine };
+    };
+
     // Manejar eventos del teclado y clicks en el navbar
     useEffect(() => {
         if (!modalImage) return;
@@ -192,40 +203,53 @@ const ProjectsSection = ({ id }) => {
 
                     {/* Contenedor del carrusel */}
                     <div className="carousel-container" ref={carouselRef}>
-                        {projectsData.map((project, index) => (
-                            <div key={index} className="project-slide">
-                                <div className="project-card-carousel">
-                                    <div 
-                                        className="project-image-wrapper"
-                                        onClick={() => openModal(project.imageFull)}
-                                        role="button"
-                                        tabIndex={0}
-                                        onKeyPress={(e) => {
-                                            if (e.key === 'Enter' || e.key === ' ') {
-                                                openModal(project.imageFull);
-                                            }
-                                        }}
-                                        aria-label={`Ampliar imagen del proyecto ${project.title}`}
-                                    >
-                                        <img 
-                                            src={project.imageMini} 
-                                            alt={`Proyecto ${project.location}`} 
-                                            className="project-image" 
-                                        />
-                                        <div className="image-overlay">
-                                            <img src={lupaImg} alt="Ampliar" className="zoom-icon" />
-                                            <span className="zoom-text">Click para ampliar</span>
+                        {projectsData.map((project, index) => {
+                            const { firstLine, secondLine } = formatDescription(project.description);
+                            
+                            return (
+                                <div key={index} className="project-slide">
+                                    <div className="project-card-carousel">
+                                        <div 
+                                            className="project-image-wrapper"
+                                            onClick={() => openModal(project.imageFull)}
+                                            role="button"
+                                            tabIndex={0}
+                                            onKeyPress={(e) => {
+                                                if (e.key === 'Enter' || e.key === ' ') {
+                                                    openModal(project.imageFull);
+                                                }
+                                            }}
+                                            aria-label={`Ampliar imagen del proyecto ${project.title}`}
+                                        >
+                                            <img 
+                                                src={project.imageMini} 
+                                                alt={`Proyecto ${project.location}`} 
+                                                className="project-image" 
+                                            />
+                                            <div className="image-overlay">
+                                                <img src={lupaImg} alt="Ampliar" className="zoom-icon" />
+                                                <span className="zoom-text">Click para ampliar</span>
+                                            </div>
+                                        </div>
+                                        <div className="project-info">
+                                            <h3>{project.title}</h3>
+                                            <p className="project-location">
+                                                <strong>{project.location}</strong>
+                                            </p>
+                                            <p className="project-description">
+                                                <span className="description-full">{project.description}</span>
+                                                <span className="description-mobile">
+                                                    {firstLine}
+                                                    <br />
+                                                    {secondLine}
+                                                </span>
+                                            </p>
+                                            {project.details && <p>{project.details}</p>}
                                         </div>
                                     </div>
-                                    <div className="project-info">
-                                        <h3>{project.title}</h3>
-                                        <p className="project-location"><strong>{project.location}</strong></p>
-                                        <p>{project.description}</p>
-                                        {project.details && <p>{project.details}</p>}
-                                    </div>
                                 </div>
-                            </div>
-                        ))}
+                            );
+                        })}
                     </div>
 
                     {/* Botón Siguiente */}
